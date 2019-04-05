@@ -1,0 +1,33 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger Rest Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: "/latest"
+
+# Paths supported by the server application
+paths:
+  /sequences:
+    get:
+      operationId: sequences.read
+      tags:
+        - Sequences
+      summary: Read one sequence
+      description: Read one sequence
+      responses:
+        200:
+          description: Successfully read person from people data operation
+          schema:
+            type: object
+            properties:
+              sequence_imprint:
+                type: string
+                description: Returned sequence
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the sequence record
