@@ -1,5 +1,6 @@
 from datetime import datetime
 from biocommons.seqrepo import SeqRepo
+import requests
 
 def get_timestamp():
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
@@ -27,5 +28,4 @@ def search():
     from biocommons.seqrepo import SeqRepo
     sr = SeqRepo("/usr/local/share/seqrepo/latest")
     #return [sr[key] for key in sorted(sr.keys())]
-    return sr["NC_000001.11"][780000:780020]
-    
+    return sr["NC_000001.11"][780000:780020
