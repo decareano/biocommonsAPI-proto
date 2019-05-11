@@ -26,6 +26,6 @@ def get_timestamp():
 def search():    
     from biocommons.seqrepo import SeqRepo
     sr = SeqRepo("/usr/local/share/seqrepo/latest")
-    #id = dict(sr.aliases.find_aliases().fetchall(10)[0])
-    #return {"data": sr[id], "other": "key"}
-    return [SEQUENCES]
+    #return [sr[key] for key in sorted(sr.keys())]
+    return sr["NC_000001.11"][780000:780020]
+    
