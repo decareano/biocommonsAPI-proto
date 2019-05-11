@@ -13,8 +13,19 @@ def get_timestamp():
 #}
 
 # Create a handler for our read (GET) people
-def read():
-    # Create the list of people from our data
+#def read():
+#    # Create the list of people from our data
+#    from biocommons.seqrepo import SeqRepo
+#    sr = SeqRepo("/usr/local/share/seqrepo/latest")
+#    #return sr["NC_000001.11"][780000:780020]
+#    #return [sr[key] for key in sorted(sr.keys())]
+#    #return sr.fetch('NM_000059.3', start=10, end=22)
+#    #return [sr[seq_id] for seq_id in sorted(sr.seq_id())]
+    
+    
+def search():    
+    from biocommons.seqrepo import SeqRepo
     sr = SeqRepo("/usr/local/share/seqrepo/latest")
-    return sr["NC_000001.11"][780000:780020]
-    #return [SEQUENCES[key] for key in sorted(SEQUENCES.keys())]
+    #id = dict(sr.aliases.find_aliases().fetchall(10)[0])
+    #return {"data": sr[id], "other": "key"}
+    return [SEQUENCES]

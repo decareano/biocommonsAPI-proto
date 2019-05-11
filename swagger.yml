@@ -12,9 +12,9 @@ basePath: "/latest"
 
 # Paths supported by the server application
 paths:
-  /sequences:
+  /sequences:id:
     get:
-      operationId: sequences.read
+      operationId: sequences.search
       tags:
         - Sequences
       summary: Read one sequence
