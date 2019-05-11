@@ -1,5 +1,6 @@
 from datetime import datetime
 from biocommons.seqrepo import SeqRepo
+import requests
 
 def get_timestamp():
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
@@ -26,6 +27,11 @@ def get_timestamp():
 def search():    
     from biocommons.seqrepo import SeqRepo
     sr = SeqRepo("/usr/local/share/seqrepo/latest")
-    #id = dict(sr.aliases.find_aliases().fetchall(10)[0])
-    #return {"data": sr[id], "other": "key"}
-    return [SEQUENCES]
+    resp = requests.get("/usr/local/share/seqrepo/latest")
+    if resp.status_code != 200:
+        raise ApiError('GET /id/ {}'.format(resp.status_code))
+    for todo_item in resp.json():
+        print('{} {}'.format(todo_item['id'], todo_item['summmary']))
+    #return {"data": sr[d], "other": "key"}
+    #return [SEQUENCES]
+
